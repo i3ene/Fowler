@@ -18,19 +18,20 @@ class Customer {
 
     public String getStatement() {
         Enumeration<Rental> enumRentals = this.rentals.elements();
-        String result = "Rental Record for " + this.getName() + "\n";
-        result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
+        StringBuilder result = new StringBuilder("Rental Record for ");
+        result.append(this.getName()).append("\n");
+        result.append("\t").append("Title").append("\t\t").append("Days").append("\t").append("Amount").append("\n");
 
         while (enumRentals.hasMoreElements()) {
             Rental each = enumRentals.nextElement();
             // show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + "\t" + each.getDaysRented() + "\t" + each.getCharge() + "\n";
+            result.append("\t").append(each.getMovie().getTitle()).append("\t\t").append(each.getDaysRented()).append("\t").append(each.getCharge()).append("\n");
         }
         
         // add footer lines
-        result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
-        result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
-        return result;
+        result.append("Amount owed is ").append(getTotalCharge()).append("\n");
+        result.append("You earned ").append(getTotalFrequentRenterPoints()).append(" frequent renter points");
+        return result.toString();
     }
 
     private int getTotalFrequentRenterPoints() {
