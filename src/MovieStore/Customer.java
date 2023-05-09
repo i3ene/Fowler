@@ -1,3 +1,4 @@
+package MovieStore;
 import java.util.*;
 
 class Customer {
