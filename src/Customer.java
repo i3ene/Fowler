@@ -5,7 +5,7 @@ class Customer {
     private Vector<Rental> rentals = new Vector<Rental>();
 
     public Customer(String newname) {
-        name = newname;
+        this.name = newname;
     };
 
     public void addRental(Rental arg) {
@@ -13,10 +13,10 @@ class Customer {
     };
 
     public String getName() {
-        return name;
+        return this.name;
     };
 
-    public String statement() {
+    public String getStatement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration<Rental> enum_rentals = this.rentals.elements();
@@ -27,7 +27,7 @@ class Customer {
             double thisAmount = 0;
             Rental each = (Rental) enum_rentals.nextElement();
             // determine amounts for each line
-            thisAmount = amountFor(each);
+            thisAmount = getCharge(each);
             // add frequent renter points
             frequentRenterPoints++;
             // add bonus for a two day new release rental
@@ -43,7 +43,7 @@ class Customer {
         return result;
     }
 
-    private double amountFor(Rental rental) {
+    private double getCharge(Rental rental) {
         double total = 0;
         switch (rental.getMovie().getPriceCode()) {
             case Movie.REGULAR:

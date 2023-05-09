@@ -19,7 +19,7 @@ public class Program {
         c1.addRental(r2);
 
         System.out.println("Let's get the Statement");
-        String result = c1.statement();
+        String result = c1.getStatement();
         System.out.println(result);
     }
 }
