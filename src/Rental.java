@@ -37,4 +37,8 @@ class Rental {
         }
         return total;
     }
+
+    public int getFrequentRenterPoints() {
+        return this.movie.getFrequentRenterPoints(this.daysRented);
+    }
 }

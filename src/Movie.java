@@ -17,4 +17,11 @@ public class Movie {
     public String getTitle() {
         return this.title;
     }
+
+    public int getFrequentRenterPoints(int days) {
+        if (this.priceCode == Movie.NEW_RELEASE && days > 1)
+            return 2;
+        else
+            return 1;
+    }
 }
