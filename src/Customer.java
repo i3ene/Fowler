@@ -17,12 +17,12 @@ class Customer {
     };
 
     public String getStatement() {
-        Enumeration<Rental> enum_rentals = this.rentals.elements();
+        Enumeration<Rental> enumRentals = this.rentals.elements();
         String result = "Rental Record for " + this.getName() + "\n";
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
-        while (enum_rentals.hasMoreElements()) {
-            Rental each = (Rental) enum_rentals.nextElement();
+        while (enumRentals.hasMoreElements()) {
+            Rental each = enumRentals.nextElement();
             // show figures for this rental
             result += "\t" + each.getMovie().getTitle() + "\t" + "\t" + each.getDaysRented() + "\t" + each.getCharge() + "\n";
         }
